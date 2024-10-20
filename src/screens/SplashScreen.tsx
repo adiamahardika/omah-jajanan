@@ -1,16 +1,12 @@
 import React, { useEffect } from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 import { Button } from "react-native-paper";
-import { useNavigation, NavigationProp } from "@react-navigation/native";
 
 const SplashScreen = ({ navigation }: any) => {
-  //   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
-  //   const navigation = useNavigation();
-
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate("Food List");
-    }, 3000); // Durasi splash screen
+    }, 5000);
   }, []);
 
   return (

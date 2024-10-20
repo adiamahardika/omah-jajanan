@@ -1,16 +1,12 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { Button } from "react-native-paper";
+import { useCart } from "../context/CartContext";
+import { formatRupiah } from "../helpers/helper";
 
 const FoodDetailScreen = ({ route }: any) => {
   const { item } = route.params;
-  function formatRupiah(number: number) {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-      minimumFractionDigits: 0,
-    }).format(number);
-  }
+  const { addToCart } = useCart();
 
   return (
     <View style={styles.container}>
@@ -21,7 +17,10 @@ const FoodDetailScreen = ({ route }: any) => {
       <Button
         icon="cart"
         mode="contained"
-        onPress={() => alert("Ditambahkan ke keranjang")}
+        onPress={() => {
+          alert("Ditambahkan ke keranjang");
+          addToCart(item);
+        }}
         style={{ marginBottom: 10 }}
         buttonColor="#41210a"
       >

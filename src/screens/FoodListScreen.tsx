@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  View,
-  FlatList,
-  Image,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
-import { Card, Title, Paragraph } from "react-native-paper";
+import { View, FlatList, TouchableOpacity, StyleSheet } from "react-native";
+import { Card, Title, Paragraph, Button } from "react-native-paper";
 
 const foodData = [
   {
@@ -126,6 +119,15 @@ const FoodListScreen = ({ navigation }: any) => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
+      <Button
+        icon="cart"
+        style={styles.cart}
+        mode="outlined"
+        onPress={() => navigation.navigate("Keranjang")}
+        textColor="#41210a"
+      >
+        Buka Keranjang
+      </Button>
     </View>
   );
 };
@@ -138,6 +140,7 @@ const styles = StyleSheet.create({
   itemImage: { width: 80, height: 80 },
   itemTitle: { fontSize: 18, fontWeight: "bold" },
   itemDescription: { color: "#666" },
+  cart: { marginTop: 5 },
 });
 
 export default FoodListScreen;
